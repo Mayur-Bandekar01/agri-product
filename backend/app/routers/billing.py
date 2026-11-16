@@ -216,17 +216,16 @@ def _create_invoice(
         product.stock = Decimal(product.stock) - Decimal(str(qty))  # deduct stock
 
     if amount_paid > 0:
-        # Generate receipt number using invoice ID for uniqueness (atomic, no race condition)
-        # Format: REC-{invoice_id_padded}
-        receipt_no = f"REC-{invoice.id:06d}"
-
-        db.add(models.Payment(
-            receipt_no=receipt_no,
+        payment = models.Payment(
+            receipt_no=f"PENDING-{uuid4()}",
             invoice_id=invoice.id,
             user_id=current_user.id,
             amount=amount_paid,
             method=payload.payment_method,
-        ))
+        )
+        db.add(payment)
+        db.flush()
+        payment.receipt_no = f"REC-{payment.id:06d}"
 
     db.commit()
     db.refresh(invoice)
@@ -279,17 +278,16 @@ def record_payment(
         if amount > Decimal(invoice.balance_due):
             raise HTTPException(status_code=400, detail="Payment cannot exceed the outstanding balance")
 
-        # Generate receipt number using invoice ID for uniqueness (atomic, no race condition)
-        # Format: REC-{invoice_id_padded}
-        receipt_no = f"REC-{invoice.id:06d}"
-
-        db.add(models.Payment(
-            receipt_no=receipt_no,
+        payment = models.Payment(
+            receipt_no=f"PENDING-{uuid4()}",
             invoice_id=invoice.id,
             user_id=current_user.id,
             amount=amount,
-            method=payload.method
-        ))
+            method=payload.method,
+        )
+        db.add(payment)
+        db.flush()
+        payment.receipt_no = f"REC-{payment.id:06d}"
         invoice.amount_paid = _money(Decimal(invoice.amount_paid) + amount)
         invoice.balance_due = _money(Decimal(invoice.grand_total) - Decimal(invoice.amount_paid))
         invoice.status = (
