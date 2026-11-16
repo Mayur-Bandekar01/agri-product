@@ -1,0 +1,208 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║                  ADINATH AGRI SERVICES SETUP CHECKLIST                ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Use this checklist to verify your setup is complete and working.
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 1: PRE-FLIGHT CHECKS                                           │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Python 3.10+ is installed
+    Check: python --version
+
+[ ] Project folder is accessible
+    Location: e:\agri project\adinath-agri-services-project (2)\
+              adinath-agri-services-project\adinath-agri-services
+
+[ ] Virtual environment exists
+    Check: dir backend\venv
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 2: DEPENDENCIES                                                │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Backend dependencies installed
+    Run: cd backend
+         .\venv\Scripts\Activate.ps1
+         pip install -r requirements.txt
+    
+    Should install: fastapi, uvicorn, sqlalchemy, passlib,
+                    python-jose, openpyxl, reportlab
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 3: DATABASE                                                    │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Database file exists
+    Check: dir backend\adinath.db
+    
+[ ] Database has products
+    Should have: 110 products pre-loaded
+    
+[ ] Backups directory exists
+    Check: dir backend\backups
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 4: AUTHENTICATION                                              │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Admin user exists
+    Username: admin
+    Password: admin123
+    
+[ ] Can create admin if needed
+    Run: backend\venv\Scripts\python.exe create_admin.py
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 5: STARTUP TEST                                                │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Backend starts without errors
+    Method 1: Double-click start-backend.bat
+    Method 2: cd backend
+              .\venv\Scripts\Activate.ps1
+              python -m uvicorn app.main:app --reload
+
+[ ] See "Application ready to serve requests" message
+
+[ ] No error messages in terminal
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 6: WEB ACCESS                                                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Can access main page
+    URL: http://localhost:8000
+    
+[ ] Can access API docs
+    URL: http://localhost:8000/docs
+    
+[ ] Health check works
+    URL: http://localhost:8000/api/health
+    Should show: "status": "healthy"
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 7: LOGIN TEST                                                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Login page loads
+    
+[ ] Can login with admin credentials
+    Username: admin
+    Password: admin123
+    
+[ ] Redirected to dashboard after login
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 8: FEATURES TEST                                               │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Products page shows 110 products
+    Navigate to: Products
+    
+[ ] Can view product details
+    Click on any product
+    
+[ ] Farmers page loads
+    Navigate to: Farmers
+    
+[ ] Billing page loads
+    Navigate to: Billing
+    
+[ ] Reports page loads
+    Navigate to: Reports
+    
+[ ] Dashboard shows statistics
+    Navigate to: Dashboard
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 9: CA EXPORT TEST (Optional but recommended)                   │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] CA Export endpoints available
+    Go to: http://localhost:8000/docs
+    Find: /ca-export/inventory-transactions
+          /ca-export/gst-report
+    
+[ ] Can download inventory transactions Excel
+    Click "Try it out" → "Execute"
+    Should download 6-sheet Excel file
+    
+[ ] Can download GST report
+    Click "Try it out" → "Execute"
+    Should download GST summary
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PHASE 10: CLEANUP & DOCUMENTATION                                    │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ ] Can stop server cleanly
+    Press: Ctrl+C in terminal
+    Should show: "Application shutting down"
+    
+[ ] Backup created on shutdown
+    Check: backend\backups\
+    Should have new backup file
+    
+[ ] Log file is readable
+    Check: backend\app.log
+    Should have startup/shutdown logs
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ VERIFICATION SUMMARY                                                 │
+└─────────────────────────────────────────────────────────────────────┘
+
+Total Phases: 10
+Total Checks: ~40
+
+If all boxes are checked [ ], your setup is COMPLETE! ✓
+
+If any checks failed, see troubleshooting in PROJECT_SETUP.md
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ AUTOMATED VERIFICATION                                               │
+└─────────────────────────────────────────────────────────────────────┘
+
+Instead of manual checking, run the automated verification:
+
+    cd backend
+    .\venv\Scripts\python.exe ..\verify_setup.py
+
+This will check everything automatically and report any issues.
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ QUICK REFERENCE                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+Start:          Double-click start-backend.bat
+Stop:           Press Ctrl+C
+Access:         http://localhost:8000
+Login:          admin / admin123
+API Docs:       http://localhost:8000/docs
+Logs:           backend\app.log
+Database:       backend\adinath.db
+Backups:        backend\backups\
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ NEXT STEPS                                                           │
+└─────────────────────────────────────────────────────────────────────┘
+
+After completing this checklist:
+
+1. [ ] Review the 110 pre-loaded products
+2. [ ] Add your first farmer
+3. [ ] Create a test invoice
+4. [ ] Generate a report
+5. [ ] Test CA export feature
+6. [ ] Change admin password
+7. [ ] Create additional users if needed
+8. [ ] Configure any custom settings
+9. [ ] Read full documentation in PROJECT_SETUP.md
+10. [ ] When ready, build production installer (build-production.bat)
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         SETUP COMPLETE!                               ║
+║                                                                       ║
+║  Your Adinath Agri Services application is ready for production use. ║
+╚═══════════════════════════════════════════════════════════════════════╝

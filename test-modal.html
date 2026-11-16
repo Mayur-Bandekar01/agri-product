@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Test</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=modal-fix-and-enhanced-ui-1">
+    <script>
+        function openTestModal() {
+            console.log('Opening modal...');
+            const modal = document.getElementById('testModal');
+            console.log('Modal element:', modal);
+            if (modal) {
+                modal.classList.add('open');
+                console.log('Added open class');
+            } else {
+                console.error('Modal element not found!');
+            }
+        }
+        
+        function closeTestModal() {
+            const modal = document.getElementById('testModal');
+            if (modal) {
+                modal.classList.remove('open');
+            }
+        }
+    </script>
+</head>
+<body style="padding: 40px;">
+    <h1>Modal Test Page</h1>
+    <button onclick="openTestModal()" style="padding: 12px 24px; font-size: 16px; cursor: pointer;">
+        Open Test Modal
+    </button>
+    
+    <div class="modal-overlay" id="testModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h3>Test Modal</h3>
+                <button class="modal-close" onclick="closeTestModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p>If you can see this, the modal CSS is working!</p>
+                <p>The modal system has been properly loaded.</p>
+            </div>
+            <div class="form-actions">
+                <button onclick="closeTestModal()" style="padding: 8px 16px;">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

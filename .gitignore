@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Database
+backend/adinath.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Electron desktop build output
+node_modules/
+desktop/backend-dist/
+desktop/release/
+desktop/.pyinstaller-work/
+*.spec

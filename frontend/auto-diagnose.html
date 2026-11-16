@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Modal Diagnostics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .test-section {
+            background: #f7fafc;
+            border-left: 4px solid #4299e1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .test-section h2 {
+            color: #2d3748;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .result {
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .result.pass {
+            background: #c6f6d5;
+            border-left: 4px solid #38a169;
+            color: #22543d;
+        }
+        .result.fail {
+            background: #fed7d7;
+            border-left: 4px solid #e53e3e;
+            color: #742a2a;
+        }
+        .result.info {
+            background: #bee3f8;
+            border-left: 4px solid #3182ce;
+            color: #2c5282;
+        }
+        .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.2s;
+        }
+        .button:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.4);
+        }
+        .button.danger {
+            background: #e53e3e;
+        }
+        .button.danger:hover {
+            background: #c53030;
+        }
+        .button.success {
+            background: #38a169;
+        }
+        .button.success:hover {
+            background: #2f855a;
+        }
+        .summary {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .summary h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .summary-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        .code {
+            background: #2d3748;
+            color: #68d391;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4299e1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Automatic Modal Diagnostics</h1>
+        <p class="subtitle">Running comprehensive tests on your modal system...</p>
+        
+        <div id="results"></div>
+        
+        <div id="actions" style="margin-top: 30px; display: none;">
+            <h2 style="margin-bottom: 15px;">Quick Actions:</h2>
+            <button class="button success" onclick="tryOpenModal()">Try Opening Modal Now</button>
+            <button class="button" onclick="location.reload()">Rerun Diagnostics</button>
+            <button class="button danger" onclick="window.location='/'">Go to Main App</button>
+        </div>
+        
+        <div id="summary" style="display: none;"></div>
+    </div>
+
+    <script>
+        let results = [];
+        let passCount = 0;
+        let failCount = 0;
+        
+        function addResult(title, message, status) {
+            const icon = status === 'pass' ? '✅' : status === 'fail' ? '❌' : 'ℹ️';
+            results.push({title, message, status});
+            
+            if (status === 'pass') passCount++;
+            if (status === 'fail') failCount++;
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML += `
+                <div class="test-section">
+                    <h2><span class="icon">${icon}</span>${title}</h2>
+                    <div class="result ${status}">
+                        ${message}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function showSummary() {
+            const total = passCount + failCount;
+            const summaryDiv = document.getElementById('summary');
+            const actionsDiv = document.getElementById('actions');
+            
+            let diagnosis = '';
+            let solution = '';
+            
+            if (failCount === 0) {
+                diagnosis = '🎉 All tests passed! The modal system should be working.';
+                solution = 'Click "Try Opening Modal Now" to test it, or go to the main app.';
+            } else {
+                diagnosis = `⚠️ Found ${failCount} issue(s) preventing the modal from working.`;
+                solution = 'Check the failed tests above for details.';
+            }
+            
+            summaryDiv.style.display = 'block';
+            summaryDiv.className = 'summary';
+            summaryDiv.innerHTML = `
+                <h2>📊 Diagnostic Summary</h2>
+                <div class="summary-item">
+                    <strong>Tests Passed:</strong> ${passCount} / ${total}
+                </div>
+                <div class="summary-item">
+                    <strong>Tests Failed:</strong> ${failCount} / ${total}
+                </div>
+                <div class="summary-item">
+                    <strong>Diagnosis:</strong> ${diagnosis}
+                </div>
+                <div class="summary-item">
+                    <strong>Next Step:</strong> ${solution}
+                </div>
+            `;
+            
+            actionsDiv.style.display = 'block';
+        }
+        
+        function tryOpenModal() {
+            // Try to open the modal from parent window
+            try {
+                if (window.opener && window.opener.openFarmerForm) {
+                    window.opener.openFarmerForm();
+                    alert('Modal command sent! Check the main window.');
+                } else {
+                    alert('Cannot access main window. Please open this page from the main app.');
+                }
+            } catch(e) {
+                alert('Error: ' + e.message);
+            }
+        }
+        
+        // Run diagnostics on page load
+        window.addEventListener('DOMContentLoaded', async function() {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            // Test 1: Check if we can access parent window
+            addResult(
+                'Test 1: Check Parent Window Access',
+                window.opener 
+                    ? 'Can access parent window (main app is open)' 
+                    : 'Cannot access parent window. This diagnostic page should be opened FROM the main app.',
+                window.opener ? 'pass' : 'info'
+            );
+            
+            if (window.opener) {
+                // Test 2: Check modal HTML exists in parent
+                try {
+                    const modal = window.opener.document.getElementById('entityModal');
+                    addResult(
+                        'Test 2: Modal HTML Exists',
+                        modal 
+                            ? `✓ Found modal element with ID: <span class="code">entityModal</span><br>Classes: <span class="code">${modal.className || 'none'}</span>` 
+                            : '✗ Modal element NOT FOUND in DOM! The HTML is missing.',
+                        modal ? 'pass' : 'fail'
+                    );
+                    
+                    if (modal) {
+                        // Test 3: Check CSS loaded
+                        const styles = window.opener.getComputedStyle(modal);
+                        const position = styles.position;
+                        addResult(
+                            'Test 3: Modal CSS Loaded',
+                            position === 'fixed' 
+                                ? `✓ CSS loaded correctly. Position: <span class="code">${position}</span>, Display: <span class="code">${styles.display}</span>` 
+                                : `✗ CSS NOT loaded properly. Position: <span class="code">${position}</span> (should be "fixed")`,
+                            position === 'fixed' ? 'pass' : 'fail'
+                        );
+                    }
+                } catch(e) {
+                    addResult('Test 2: Modal HTML Check', `Error: ${e.message}`, 'fail');
+                }
+                
+                // Test 4: Check functions exist
+                try {
+                    const hasOpen = typeof window.opener.openFarmerForm === 'function';
+                    const hasBuild = typeof window.opener.buildFarmerForm === 'function';
+                    const hasClose = typeof window.opener.closeModal === 'function';
+                    
+                    addResult(
+                        'Test 4: JavaScript Functions',
+                        `
+                            <span class="code">openFarmerForm</span>: ${hasOpen ? '✓ Found' : '✗ Missing'}<br>
+                            <span class="code">buildFarmerForm</span>: ${hasBuild ? '✓ Found' : '✗ Missing'}<br>
+                            <span class="code">closeModal</span>: ${hasClose ? '✓ Found' : '✗ Missing'}
+                        `,
+                        (hasOpen && hasBuild && hasClose) ? 'pass' : 'fail'
+                    );
+                } catch(e) {
+                    addResult('Test 4: JavaScript Functions', `Error: ${e.message}`, 'fail');
+                }
+                
+                // Test 5: Check data loaded
+                try {
+                    const farmers = window.opener.farmers;
+                    addResult(
+                        'Test 5: Data Loaded',
+                        farmers 
+                            ? `✓ Farmers array exists, length: <span class="code">${farmers.length}</span>` 
+                            : '✗ Farmers array not found',
+                        farmers ? 'pass' : 'fail'
+                    );
+                } catch(e) {
+                    addResult('Test 5: Data Loaded', `Error: ${e.message}`, 'fail');
+                }
+                
+                // Test 6: Check CSS file loaded
+                try {
+                    const styleSheets = Array.from(window.opener.document.styleSheets);
+                    const styleCSS = styleSheets.find(sheet => sheet.href && sheet.href.includes('style.css'));
+                    addResult(
+                        'Test 6: CSS File Loaded',
+                        styleCSS 
+                            ? `✓ style.css loaded: <span class="code">${styleCSS.href.split('/').pop()}</span>` 
+                            : '✗ style.css not found in loaded stylesheets',
+                        styleCSS ? 'pass' : 'fail'
+                    );
+                } catch(e) {
+                    addResult('Test 6: CSS File', `Error checking stylesheets: ${e.message}`, 'info');
+                }
+                
+                // Test 7: Try to open modal
+                try {
+                    addResult(
+                        'Test 7: Manual Modal Test',
+                        'Click the "Try Opening Modal Now" button below to test if the modal can be opened.',
+                        'info'
+                    );
+                } catch(e) {
+                    addResult('Test 7: Modal Test', `Error: ${e.message}`, 'fail');
+                }
+            } else {
+                addResult(
+                    'How to Use This Diagnostic',
+                    `
+                        1. Open the main app: <span class="code">http://localhost:8000</span><br>
+                        2. Login with your credentials<br>
+                        3. Open this diagnostic page in a NEW TAB<br>
+                        4. This page will then be able to test the main app's modal
+                    `,
+                    'info'
+                );
+            }
+            
+            showSummary();
+        });
+    </script>
+</body>
+</html>

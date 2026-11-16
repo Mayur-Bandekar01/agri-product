@@ -1,0 +1,142 @@
+2026-11-14 19:55:18,849 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 19:55:18,856 - app.main - INFO - Database integrity check passed
+2026-11-14 19:55:18,856 - app.database.migrations - INFO - Initializing database...
+2026-11-14 19:55:18,860 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 19:55:18,860 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 19:55:18,876 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_142518_startup.db
+2026-11-14 19:55:18,876 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_142518_startup.db
+2026-11-14 19:55:18,877 - app.main - INFO - Application ready to serve requests
+2026-11-14 19:59:31,275 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-14 19:59:31,296 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_142931_shutdown.db
+2026-11-14 19:59:31,296 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_142931_shutdown.db
+2026-11-14 20:07:39,841 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 20:07:39,843 - app.main - INFO - Database integrity check passed
+2026-11-14 20:07:39,844 - app.database.migrations - INFO - Initializing database...
+2026-11-14 20:07:39,847 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 20:07:39,847 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 20:07:39,872 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_143739_startup.db
+2026-11-14 20:07:39,872 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_143739_startup.db
+2026-11-14 20:07:39,873 - app.main - INFO - Application ready to serve requests
+2026-11-14 21:33:50,798 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 21:33:50,801 - app.main - INFO - Database integrity check passed
+2026-11-14 21:33:50,802 - app.database.migrations - INFO - Initializing database...
+2026-11-14 21:33:50,804 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 21:33:50,805 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 21:33:50,832 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_160350_startup.db
+2026-11-14 21:33:50,833 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_160350_startup.db
+2026-11-14 21:33:50,833 - app.main - INFO - Application ready to serve requests
+2026-11-14 21:34:34,902 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-14 21:34:34,922 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_160434_shutdown.db
+2026-11-14 21:34:34,923 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_160434_shutdown.db
+2026-11-14 21:50:37,241 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 21:50:37,244 - app.main - INFO - Database integrity check passed
+2026-11-14 21:50:37,244 - app.database.migrations - INFO - Initializing database...
+2026-11-14 21:50:37,247 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 21:50:37,247 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 21:50:37,273 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_162037_startup.db
+2026-11-14 21:50:37,274 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_162037_startup.db
+2026-11-14 21:50:37,274 - app.main - INFO - Application ready to serve requests
+2026-11-14 21:53:16,262 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 21:53:16,263 - app.main - INFO - Database integrity check passed
+2026-11-14 21:53:16,264 - app.database.migrations - INFO - Initializing database...
+2026-11-14 21:53:16,266 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 21:53:16,266 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 21:53:16,286 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_162316_startup.db
+2026-11-14 21:53:16,287 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_162316_startup.db
+2026-11-14 21:53:16,287 - app.main - INFO - Application ready to serve requests
+2026-11-14 23:44:19,073 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 23:44:19,100 - app.main - INFO - Database integrity check passed
+2026-11-14 23:44:19,101 - app.database.migrations - INFO - Initializing database...
+2026-11-14 23:44:19,110 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 23:44:19,111 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 23:44:19,138 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181419_startup.db
+2026-11-14 23:44:19,141 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181419_startup.db
+2026-11-14 23:44:19,142 - app.main - INFO - Application ready to serve requests
+2026-11-14 23:47:05,200 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-14 23:47:05,214 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181705_shutdown.db
+2026-11-14 23:47:05,215 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181705_shutdown.db
+2026-11-14 23:47:15,872 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 23:47:15,876 - app.main - INFO - Database integrity check passed
+2026-11-14 23:47:15,877 - app.database.migrations - INFO - Initializing database...
+2026-11-14 23:47:15,883 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 23:47:15,884 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 23:47:15,922 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181715_startup.db
+2026-11-14 23:47:15,924 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181715_startup.db
+2026-11-14 23:47:15,924 - app.main - INFO - Application ready to serve requests
+2026-11-14 23:49:11,833 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-14 23:49:11,862 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181911_shutdown.db
+2026-11-14 23:49:11,864 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181911_shutdown.db
+2026-11-14 23:49:14,285 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 23:49:14,288 - app.main - INFO - Database integrity check passed
+2026-11-14 23:49:14,288 - app.database.migrations - INFO - Initializing database...
+2026-11-14 23:49:14,293 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 23:49:14,294 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 23:49:14,336 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181914_startup.db
+2026-11-14 23:49:14,338 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_181914_startup.db
+2026-11-14 23:49:14,338 - app.main - INFO - Application ready to serve requests
+2026-11-14 23:51:43,850 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-14 23:51:43,870 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182143_shutdown.db
+2026-11-14 23:51:43,871 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182143_shutdown.db
+2026-11-14 23:51:48,027 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 23:51:48,029 - app.main - INFO - Database integrity check passed
+2026-11-14 23:51:48,029 - app.database.migrations - INFO - Initializing database...
+2026-11-14 23:51:48,032 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 23:51:48,033 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 23:51:48,059 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182148_startup.db
+2026-11-14 23:51:48,059 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182148_startup.db
+2026-11-14 23:51:48,060 - app.main - INFO - Application ready to serve requests
+2026-11-14 23:55:28,728 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-14 23:55:28,755 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182528_shutdown.db
+2026-11-14 23:55:28,756 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182528_shutdown.db
+2026-11-14 23:55:40,313 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-14 23:55:40,315 - app.main - INFO - Database integrity check passed
+2026-11-14 23:55:40,315 - app.database.migrations - INFO - Initializing database...
+2026-11-14 23:55:40,318 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-14 23:55:40,318 - app.database.migrations - INFO - Database initialization complete
+2026-11-14 23:55:40,333 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182540_startup.db
+2026-11-14 23:55:40,334 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261114_182540_startup.db
+2026-11-14 23:55:40,334 - app.main - INFO - Application ready to serve requests
+2026-11-15 11:10:47,301 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-15 11:10:47,316 - app.main - INFO - Database integrity check passed
+2026-11-15 11:10:47,317 - app.database.migrations - INFO - Initializing database...
+2026-11-15 11:10:47,320 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-15 11:10:47,321 - app.database.migrations - INFO - Database initialization complete
+2026-11-15 11:10:47,332 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_054047_startup.db
+2026-11-15 11:10:47,333 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_054047_startup.db
+2026-11-15 11:10:47,334 - app.main - INFO - Application ready to serve requests
+2026-11-15 12:30:10,624 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-15 12:30:10,648 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_070010_shutdown.db
+2026-11-15 12:30:10,651 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_070010_shutdown.db
+2026-11-15 12:30:12,741 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-15 12:30:12,744 - app.main - INFO - Database integrity check passed
+2026-11-15 12:30:12,744 - app.database.migrations - INFO - Initializing database...
+2026-11-15 12:30:12,747 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-15 12:30:12,748 - app.database.migrations - INFO - Database initialization complete
+2026-11-15 12:30:12,765 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_070012_startup.db
+2026-11-15 12:30:12,765 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_070012_startup.db
+2026-11-15 12:30:12,766 - app.main - INFO - Application ready to serve requests
+2026-11-15 13:09:22,771 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-15 13:09:22,796 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_073922_shutdown.db
+2026-11-15 13:09:22,800 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_073922_shutdown.db
+2026-11-15 13:09:45,388 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-15 13:09:45,390 - app.main - INFO - Database integrity check passed
+2026-11-15 13:09:45,391 - app.database.migrations - INFO - Initializing database...
+2026-11-15 13:09:45,394 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-15 13:09:45,395 - app.database.migrations - INFO - Database initialization complete
+2026-11-15 13:09:45,428 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_073945_startup.db
+2026-11-15 13:09:45,430 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_073945_startup.db
+2026-11-15 13:09:45,430 - app.main - INFO - Application ready to serve requests
+2026-11-15 13:46:53,032 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-15 13:46:53,042 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_081653_shutdown.db
+2026-11-15 13:46:53,043 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_081653_shutdown.db
+2026-11-15 23:28:19,536 - app.main - INFO - === Adinath Agri Services Starting ===
+2026-11-15 23:28:19,546 - app.main - INFO - Database integrity check passed
+2026-11-15 23:28:19,546 - app.database.migrations - INFO - Initializing database...
+2026-11-15 23:28:19,550 - app.database.migrations - INFO - Database schema migrations completed successfully
+2026-11-15 23:28:19,551 - app.database.migrations - INFO - Database initialization complete
+2026-11-15 23:28:19,563 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_175819_startup.db
+2026-11-15 23:28:19,564 - app.main - INFO - Startup backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_175819_startup.db
+2026-11-15 23:28:19,564 - app.main - INFO - Application ready to serve requests
+2026-11-15 23:29:31,179 - app.main - INFO - === Adinath Agri Services Shutting Down ===
+2026-11-15 23:29:31,198 - app.database.backup - INFO - Database backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_175931_shutdown.db
+2026-11-15 23:29:31,199 - app.main - INFO - Shutdown backup created: E:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend\backups\adinath_backup_20261115_175931_shutdown.db

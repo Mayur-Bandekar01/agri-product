@@ -1,0 +1,156 @@
+═══════════════════════════════════════════════════════════════════
+    ADINATH AGRI SERVICES - QUICK START GUIDE (5 MINUTES)
+═══════════════════════════════════════════════════════════════════
+
+CURRENT STATUS:
+✓ Backend configured and ready
+✓ Database with 110 products pre-loaded
+✓ Admin user created (admin/admin123)
+✓ All dependencies in requirements.txt
+
+═══════════════════════════════════════════════════════════════════
+                    FASTEST WAY TO START
+═══════════════════════════════════════════════════════════════════
+
+METHOD 1: DOUBLE-CLICK (Easiest - 30 seconds)
+----------------------------------------------
+1. Navigate to this folder:
+   e:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services
+
+2. Double-click: start-backend.bat
+
+3. Wait 5 seconds for "Application ready to serve requests"
+
+4. Open browser: http://localhost:8000
+
+5. Login:
+   Username: admin
+   Password: admin123
+
+DONE! ✓
+
+═══════════════════════════════════════════════════════════════════
+
+METHOD 2: COMMAND LINE (Manual - 1 minute)
+-------------------------------------------
+1. Open PowerShell or Command Prompt
+
+2. Run these commands:
+
+   cd "e:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services\backend"
+   
+   .\venv\Scripts\Activate.ps1    (PowerShell)
+   OR
+   venv\Scripts\activate.bat      (Command Prompt)
+   
+   python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+
+3. Open browser: http://localhost:8000
+
+4. Login: admin / admin123
+
+DONE! ✓
+
+═══════════════════════════════════════════════════════════════════
+                        WHAT YOU GET
+═══════════════════════════════════════════════════════════════════
+
+✓ 110 Products (Pesticides, Fertilizers, Bio-Stimulants, Equipment)
+✓ All products have HSN codes for GST compliance
+✓ Complete inventory management
+✓ Billing and invoicing system
+✓ Farmer account management
+✓ Reports and analytics
+✓ CA Export (6-sheet Excel for chartered accountant)
+✓ GST reports
+✓ Payment tracking
+✓ Stock movement history
+
+═══════════════════════════════════════════════════════════════════
+                      STOP THE SERVER
+═══════════════════════════════════════════════════════════════════
+
+Press: Ctrl+C in the terminal window
+
+═══════════════════════════════════════════════════════════════════
+                    FIRST TIME SETUP ONLY
+═══════════════════════════════════════════════════════════════════
+
+If this is the FIRST TIME running the project, do this once:
+
+1. Check Python is installed:
+   python --version
+   (Should show Python 3.10 or higher)
+
+2. Install dependencies (one time only):
+   cd backend
+   .\venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+
+Then use Method 1 or Method 2 above.
+
+═══════════════════════════════════════════════════════════════════
+                        TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════
+
+Problem: "Python not found"
+→ Install Python 3.10+ from python.org
+→ Check "Add Python to PATH" during installation
+
+Problem: "Module not found"
+→ Make sure you activated the virtual environment (see (venv) in prompt)
+→ Run: pip install -r requirements.txt
+
+Problem: "Port already in use"
+→ Another program is using port 8000
+→ Close it or use different port: --port 8001
+
+Problem: Can't login
+→ Username: admin
+→ Password: admin123
+→ If still fails, run: backend\venv\Scripts\python.exe create_admin.py
+
+═══════════════════════════════════════════════════════════════════
+                          FILE PATHS
+═══════════════════════════════════════════════════════════════════
+
+Project Root:
+e:\agri project\adinath-agri-services-project (2)\adinath-agri-services-project\adinath-agri-services
+
+Database:
+backend\adinath.db
+
+Backups:
+backend\backups\
+
+Logs:
+backend\app.log
+
+Start Script:
+start-backend.bat
+
+Full Documentation:
+PROJECT_SETUP.md
+
+═══════════════════════════════════════════════════════════════════
+                          USEFUL URLS
+═══════════════════════════════════════════════════════════════════
+
+Main App:        http://localhost:8000
+API Docs:        http://localhost:8000/docs
+Health Check:    http://localhost:8000/api/health
+
+═══════════════════════════════════════════════════════════════════
+                           CREDENTIALS
+═══════════════════════════════════════════════════════════════════
+
+Username: admin
+Password: admin123
+
+⚠️ CHANGE THIS PASSWORD in production!
+
+═══════════════════════════════════════════════════════════════════
+
+For detailed documentation, see: PROJECT_SETUP.md
+
+═══════════════════════════════════════════════════════════════════

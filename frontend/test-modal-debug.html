@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #1a4d2e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #27613d;
+        }
+        #debugOutput {
+            background: #333;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .debug-line {
+            margin: 5px 0;
+        }
+        .error {
+            color: #ff4444;
+        }
+        .success {
+            color: #44ff44;
+        }
+        .info {
+            color: #ffff44;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Modal System Diagnostic</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: Check if CSS is Loaded</h2>
+        <button class="test-button" onclick="test1()">Run Test 1</button>
+        <p id="test1-result"></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: Check Modal HTML Structure</h2>
+        <button class="test-button" onclick="test2()">Run Test 2</button>
+        <p id="test2-result"></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Try Opening Modal</h2>
+        <button class="test-button" onclick="test3()">Run Test 3</button>
+        <p id="test3-result"></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 4: Check JavaScript Functions</h2>
+        <button class="test-button" onclick="test4()">Run Test 4</button>
+        <p id="test4-result"></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 5: Full Modal Test</h2>
+        <button class="test-button" onclick="test5()">Open Test Modal</button>
+    </div>
+    
+    <div id="debugOutput">
+        <div class="debug-line">Debug console initialized...</div>
+        <div class="debug-line">Waiting for tests...</div>
+    </div>
+    
+    <!-- Test Modal -->
+    <div class="modal-overlay" id="testModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 10000;">
+        <div class="modal" style="background: white; padding: 20px; border-radius: 8px; max-width: 500px; width: 90%;">
+            <div class="modal-head" style="margin-bottom: 20px;">
+                <h3>Test Modal</h3>
+                <button onclick="closeTestModal()" style="float: right;">×</button>
+            </div>
+            <div class="modal-body">
+                <p>✅ Modal is displaying correctly!</p>
+                <p>The modal system is working.</p>
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button onclick="closeTestModal()" style="padding: 8px 16px;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let debugLog = [];
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.push({time: timestamp, message, type});
+            updateDebugOutput();
+        }
+        
+        function updateDebugOutput() {
+            const output = document.getElementById('debugOutput');
+            output.innerHTML = debugLog.map(entry => 
+                `<div class="debug-line ${entry.type}">[${entry.time}] ${entry.message}</div>`
+            ).join('');
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        function test1() {
+            log('Running Test 1: CSS Check', 'info');
+            const testDiv = document.createElement('div');
+            testDiv.className = 'modal-overlay';
+            document.body.appendChild(testDiv);
+            const styles = window.getComputedStyle(testDiv);
+            
+            if (styles.position === 'fixed') {
+                log('✅ CSS Loaded: modal-overlay has position: fixed', 'success');
+                document.getElementById('test1-result').innerHTML = '✅ PASS: CSS is loaded correctly';
+                document.getElementById('test1-result').style.color = 'green';
+            } else {
+                log('❌ CSS NOT Loaded: modal-overlay position is ' + styles.position, 'error');
+                document.getElementById('test1-result').innerHTML = '❌ FAIL: CSS not loaded';
+                document.getElementById('test1-result').style.color = 'red';
+            }
+            document.body.removeChild(testDiv);
+        }
+        
+        function test2() {
+            log('Running Test 2: HTML Structure Check', 'info');
+            
+            // Try to find modal in parent window (the main app)
+            let modal = null;
+            try {
+                if (window.opener && window.opener.document) {
+                    modal = window.opener.document.getElementById('entityModal');
+                    log('Checking parent window for modal...', 'info');
+                }
+            } catch(e) {
+                log('Cannot access parent window: ' + e.message, 'error');
+            }
+            
+            const result = document.getElementById('test2-result');
+            if (modal) {
+                log('✅ Found entityModal in parent window', 'success');
+                log('Modal classes: ' + modal.className, 'info');
+                result.innerHTML = '✅ PASS: Modal HTML exists in main app';
+                result.style.color = 'green';
+            } else {
+                log('❌ Modal not found in parent window', 'error');
+                result.innerHTML = '❌ FAIL: Modal HTML not found (this is a test page)';
+                result.style.color = 'orange';
+            }
+        }
+        
+        function test3() {
+            log('Running Test 3: Modal Opening Test', 'info');
+            const modal = document.getElementById('testModal');
+            
+            if (modal) {
+                modal.style.display = 'flex';
+                log('✅ Test modal displayed', 'success');
+                document.getElementById('test3-result').innerHTML = '✅ PASS: Test modal opened';
+                document.getElementById('test3-result').style.color = 'green';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    log('Test modal auto-closed', 'info');
+                }, 2000);
+            } else {
+                log('❌ Test modal not found', 'error');
+                document.getElementById('test3-result').innerHTML = '❌ FAIL: Modal not found';
+                document.getElementById('test3-result').style.color = 'red';
+            }
+        }
+        
+        function test4() {
+            log('Running Test 4: JavaScript Functions Check', 'info');
+            const result = document.getElementById('test4-result');
+            let passes = 0;
+            let total = 0;
+            
+            const functionsToCheck = ['buildFarmerForm', 'openFarmerForm', 'closeModal'];
+            
+            try {
+                if (window.opener && window.opener.document) {
+                    functionsToCheck.forEach(funcName => {
+                        total++;
+                        if (typeof window.opener[funcName] === 'function') {
+                            log(`✅ Function exists: ${funcName}`, 'success');
+                            passes++;
+                        } else {
+                            log(`❌ Function missing: ${funcName}`, 'error');
+                        }
+                    });
+                } else {
+                    log('Cannot check parent window functions', 'error');
+                }
+            } catch(e) {
+                log('Error checking functions: ' + e.message, 'error');
+            }
+            
+            if (passes === total && total > 0) {
+                result.innerHTML = `✅ PASS: All ${passes} functions exist`;
+                result.style.color = 'green';
+            } else {
+                result.innerHTML = `⚠️ PARTIAL: ${passes}/${total} functions found`;
+                result.style.color = 'orange';
+            }
+        }
+        
+        function test5() {
+            log('Running Test 5: Full Modal Test', 'info');
+            const modal = document.getElementById('testModal');
+            modal.style.display = 'flex';
+            log('✅ Test modal opened', 'success');
+        }
+        
+        function closeTestModal() {
+            const modal = document.getElementById('testModal');
+            modal.style.display = 'none';
+            log('Test modal closed', 'info');
+        }
+        
+        // Run initial check
+        log('Page loaded. Ready for tests.', 'success');
+        log('Click test buttons to diagnose modal system.', 'info');
+    </script>
+</body>
+</html>

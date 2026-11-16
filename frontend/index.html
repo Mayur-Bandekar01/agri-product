@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adinath Agri Services — Business Platform</title>
+<meta name="theme-color" content="#123524">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Adinath Agri">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icons/adinath-agri-logo.svg" type="image/svg+xml">
+<link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css?v=modal-fix-and-enhanced-ui-1">
+<link rel="stylesheet" href="/static/css/enhanced.css?v=enhanced-modern-2">
+<link rel="stylesheet" href="/static/css/print.css?v=invoice-print-1" media="print">
+</head>
+<body>
+
+<!-- ================= LOGIN SCREEN ================= -->
+<div id="loginScreen">
+  <div class="login-orb login-orb-one"></div><div class="login-orb login-orb-two"></div>
+  <div class="login-shell">
+    <aside class="login-intro" aria-label="About Adinath Agri Services">
+      <div class="login-brand">
+        <span class="login-brand-mark"><img src="/icons/adinath-agri-logo.svg" alt="Adinath Agri Services"></span>
+        <div class="login-brand-type"><strong>ADINATH</strong><span>AGRI SERVICES</span></div>
+      </div>
+      <div class="login-intro-copy"><span class="login-eyebrow">BUSINESS PLATFORM</span><h1>Run your agri business with clarity.</h1><p>One secure space for billing, inventory, customers and business performance.</p></div>
+      <div class="login-benefits"><span><i>✓</i> Live billing &amp; inventory</span><span><i>✓</i> Customer receivables</span><span><i>✓</i> Real-time business insights</span></div>
+      <div class="login-intro-footer"><span class="login-status-dot"></span> Your business data stays private</div>
+    </aside>
+    <main class="login-card">
+      <div class="login-mobile-brand login-brand"><span class="login-brand-mark"><img src="/icons/adinath-agri-logo.svg" alt="Adinath Agri Services"></span><div class="login-brand-type"><strong>ADINATH</strong><span>AGRI SERVICES</span></div></div>
+      <div class="login-card-heading"><div class="login-heading-top"><span class="login-eyebrow">WELCOME BACK</span><span class="login-verified"><i></i> SECURE ACCESS</span></div><h2 id="loginHeading">Sign in to your workspace</h2><p>Use your administrator or staff credentials to continue.</p></div>
+      <div class="login-fields">
+        <label id="setupNameLabel">Your name<input id="setupName" placeholder="Enter your full name" autocomplete="name" style="display:none;"></label>
+        <label>Username<input id="loginUsername" placeholder="Enter your username" autocomplete="username"></label>
+        <label>Password<div class="password-field"><input id="loginPassword" type="password" placeholder="Enter your password" autocomplete="current-password"><button class="password-toggle" id="passwordToggle" type="button" onclick="togglePasswordVisibility()" aria-label="Show password" aria-pressed="false" title="Show password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg></button></div></label>
+      </div>
+      <div class="login-options" aria-label="Sign in preferences"><label><input id="rememberSession" type="checkbox" aria-label="Remember me"> <span>Remember me</span></label><span class="forgot-password" aria-label="Password recovery is managed by your administrator">Forgot password?</span></div>
+      <div id="loginError" role="alert" aria-live="assertive"></div>
+      <button id="loginBtn" type="button" onclick="handleLogin()"><span>Log In</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div id="setupHint"></div>
+      <p class="login-security"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Secure, private workspace access</p>
+      <div class="login-card-footer"><span>ADINATH AGRI SERVICES</span><span>•</span><span>BUSINESS PLATFORM</span></div>
+    </main>
+  </div>
+</div>
+
+<div class="app" id="mainApp" style="display:none;">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img class="logo-mark" src="/icons/adinath-agri-logo.svg" alt="Adinath Agri Services logo">
+      <div>
+        <div class="brand-name">Adinath Agri Services</div>
+        <div class="brand-sub">Growing Together. Prosperity Forever.</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+      <a class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" data-view="billing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+        Billing
+      </a>
+      <a class="nav-item" data-view="products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+        Products
+      </a>
+      <a class="nav-item" data-view="inventory">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="5" rx="1.2"/><rect x="3" y="11" width="18" height="5" rx="1.2"/><rect x="3" y="18" width="12" height="2.5" rx="1"/></svg>
+        Inventory
+      </a>
+      <a class="nav-item" data-view="farmers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="8.5" r="2.5"/><path d="M15.5 14.2c2.7.4 4.5 2.4 4.5 5.3"/></svg>
+        Customers
+      </a>
+      <a class="nav-item" data-view="sales">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+        Invoices
+      </a>
+      <a class="nav-item" data-view="purchases">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h2l1.4 12.4A2 2 0 0 0 9.4 18h8.2a2 2 0 0 0 2-1.7L21 8H7"/><circle cx="10" cy="21" r="1.3"/><circle cx="17" cy="21" r="1.3"/></svg>
+        Purchases
+      </a>
+      <a class="nav-item" data-view="outstanding">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.2 2"/></svg>
+        Receivables
+      </a>
+      <a class="nav-item" data-view="reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M11 20V4M18 20v-7"/></svg>
+        Reports
+      </a>
+      <a class="nav-item" data-view="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        Account
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="avatar">PH</div>
+      <div>
+        <div class="staff-name">Prajot Hosure</div>
+        <div class="staff-role">Shop Admin</div>
+      </div>
+      <button class="icon-btn" type="button" title="Log out" aria-label="Log out" onclick="logout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+      </button>
+    </div>
+  </aside>
+  <button class="sidebar-backdrop" type="button" aria-label="Close navigation" onclick="toggleSidebar()"></button>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn sidebar-toggle" type="button" onclick="toggleSidebar()" aria-label="Collapse navigation" title="Collapse navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="icon-btn app-back-btn" id="appBackBtn" type="button" onclick="goBack()" aria-label="Go back" title="Go back" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>
+      </button>
+      <div class="page-title" id="pageTitle">Dashboard</div>
+      <div class="topbar-datetime" id="topbarDateTime" aria-live="off"></div>
+      <div class="topbar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="globalSearch" placeholder="Search products or farmers" aria-label="Search products or farmers">
+      </div>
+      <div class="topbar-right">
+        <button class="install-app-btn" id="installAppBtn" type="button" hidden title="Install Adinath Agri Services as an app" aria-label="Install Adinath Agri Services">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m8 10 4 4 4-4"/><path d="M5 16v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
+          <span>Install App</span>
+        </button>
+        <button class="icon-btn theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch color theme" title="Switch color theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg>
+        </button>
+        <div class="notification-wrap">
+        <button class="icon-btn notification-trigger" id="notificationTrigger" type="button" aria-label="Notifications" title="Notifications" aria-expanded="false" aria-controls="notificationCenter" onclick="toggleNotifications()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          <span class="dot-badge" id="notificationBadge" hidden></span>
+        </button>
+        <section class="notification-center" id="notificationCenter" role="region" aria-labelledby="notificationHeading" hidden>
+          <div class="notification-head"><div><strong id="notificationHeading">Notifications</strong><span id="notificationCount">You're all caught up</span></div><button class="btn btn-ghost" type="button" onclick="markAllNotificationsRead()">Mark all read</button></div>
+          <div class="notification-list" id="notificationList"></div>
+        </section>
+        </div>
+        <div class="topbar-profile">
+          <div class="avatar">PH</div>
+          <div>
+            <div class="topbar-profile-name" id="currentUserName">Signed in user</div>
+            <div class="topbar-profile-role" id="currentUserRole">Staff</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- ================= DASHBOARD VIEW ================= -->
+      <section class="view active" id="view-dashboard">
+        <div class="dash-hero">
+          <div class="dash-hero-copy">
+            <span class="dash-kicker"><i></i> OPERATIONS OVERVIEW</span>
+            <h1>Good morning, <span>Adinath Agri Services</span></h1>
+            <p>Keep your sales, inventory and customer accounts growing in one place.</p>
+            <div class="dash-trust-line"><span><i></i> GST Registered</span><span>29ACPFA8181K1ZM</span><span>Ugar Budruk, Karnataka</span></div>
+          </div>
+          <div class="dash-hero-landscape" aria-hidden="true">
+            <svg viewBox="0 0 330 175" fill="none"><circle cx="264" cy="29" r="16" fill="#E9D998" opacity=".82"/><path d="M-8 112C39 72 81 94 126 69c42-23 89-67 214-37v143H-8v-63Z" fill="#9BC77C" opacity=".13"/><path d="M-8 132c54-42 106-14 148-49 46-38 102-66 200-45v137H-8v-43Z" fill="#BCE3A0" opacity=".18"/><path d="M-8 151c65-36 103-21 161-52 55-29 100-51 187-31v107H-8v-24Z" fill="#D8EDBA" opacity=".18"/><path d="M-4 158c58-25 91-18 147-44 58-27 113-41 191-27M-2 173c58-25 102-18 159-44 55-25 107-34 177-23M47 175c46-22 77-18 124-40 43-21 89-31 147-21" stroke="#DDF1CA" stroke-width="1.4" opacity=".48"/><g stroke="#CDE9B2" stroke-width="1.7" stroke-linecap="round" opacity=".82"><path d="M222 121v-49M222 94c-15-13-24-12-31-10M222 107c14-14 25-14 34-11"/><path d="M274 130V92M274 110c-11-10-19-10-26-8M274 117c11-11 19-11 26-8"/><path d="M174 137v-32M174 119c-9-8-16-8-21-6M174 124c9-8 15-8 21-6"/></g><path d="M42 128c25-22 46-35 78-39" stroke="#E6F5D5" stroke-width="1.5" stroke-dasharray="4 5" opacity=".46"/></svg>
+          </div>
+          <div class="dash-leaves" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="dash-hero-action"><button class="btn btn-primary btn-lg" onclick="goTo('billing')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            New Bill
+          </button><span>Create an invoice in seconds</span></div>
+        </div>
+        <nav class="dashboard-shortcuts" aria-label="Dashboard navigation">
+          <span class="dashboard-shortcuts-label">WORKSPACE</span>
+          <button class="active" type="button" onclick="goTo('dashboard')">Dashboard</button><button type="button" onclick="goTo('billing')">Billing</button><button type="button" onclick="goTo('products')">Products</button><button type="button" onclick="goTo('inventory')">Inventory</button><button type="button" onclick="goTo('farmers')">Customers</button><button type="button" onclick="goTo('sales')">Invoices</button><button type="button" onclick="goTo('outstanding')">Receivables</button><button type="button" onclick="goTo('reports')">Reports</button>
+        </nav>
+        <div class="quick-actions" aria-label="Quick actions">
+          <span class="quick-actions-label">QUICK ACTIONS</span>
+          <button class="btn btn-primary" type="button" onclick="goTo('billing')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>New Invoice</button>
+          <button class="btn btn-secondary" type="button" onclick="openFarmerForm()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.4 2.7-5.7 6-5.7s6 2.3 6 5.7M18 8v6M15 11h6"/></svg>New Customer</button>
+          <button class="btn btn-secondary admin-only" type="button" onclick="openProductForm()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z"/><path d="M4 12l8 4.5 8-4.5M4 16.5l8 4.5 8-4.5"/></svg>New Product</button>
+          <button class="btn btn-secondary" type="button" onclick="goTo('outstanding')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2.1"/></svg>View Receivables</button>
+          <button class="btn btn-secondary" type="button" onclick="goTo('reports')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg>Open Reports</button>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Today's Sales</span><div class="metric-icon green metric-rupee" role="img" aria-label="Indian Rupee">₹</div></div>
+            <div class="metric-value" id="mTodaysSales">₹0.00</div>
+            <div class="metric-trend">Calculated from invoices created today</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Bills Today</span><div class="metric-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/></svg></div></div>
+            <div class="metric-value" id="mBillsToday">0</div>
+            <div class="metric-trend">Invoices created today</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Outstanding</span><div class="metric-icon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.2 2"/></svg></div></div>
+            <div class="metric-value" id="mOutstanding">₹0</div>
+            <div class="metric-trend">Unpaid invoice balances</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Low Stock</span><div class="metric-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 18a1.8 1.8 0 0 0 1.5 2.7h16a1.8 1.8 0 0 0 1.5-2.7L13.7 3.9a1.8 1.8 0 0 0-3.4 0z"/></svg></div></div>
+            <div class="metric-value" id="mLowStock">0 Items</div>
+            <div class="metric-trend">Products at or below their threshold</div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <div><span class="panel-title">Sales Overview</span><span class="panel-caption">Invoice volume across the selected period</span></div>
+              <div class="range-tabs">
+                <button class="range-tab" type="button" data-range="today">Today</button>
+                <button class="range-tab active" type="button" data-range="7d">7 Days</button>
+                <button class="range-tab" type="button" data-range="30d">30 Days</button>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="chart-wrap" id="salesChart"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div><span class="panel-title">Stock Needs Attention</span><span class="panel-caption">Items at or below their threshold</span></div><a class="btn btn-ghost" style="font-size:12px; padding:4px 6px;" onclick="goTo('inventory')">View all</a></div>
+            <div class="panel-body">
+              <div class="alert-list" id="stockAlertList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div><span class="panel-title">Recent Transactions</span><span class="panel-caption">Latest invoices from your business</span></div><a class="btn btn-ghost" style="font-size:12px; padding:4px 6px;" onclick="goTo('sales')">View all</a></div>
+          <div class="panel-body table-wrap">
+            <table id="recentTxnTable"></table>
+          </div>
+        </div>
+        <nav class="dashboard-shortcuts dashboard-shortcuts-bottom" aria-label="Dashboard navigation">
+          <span class="dashboard-shortcuts-label">QUICK NAVIGATION</span>
+          <button class="active" type="button" onclick="goTo('dashboard')">Dashboard</button><button type="button" onclick="goTo('billing')">Billing</button><button type="button" onclick="goTo('products')">Products</button><button type="button" onclick="goTo('inventory')">Inventory</button><button type="button" onclick="goTo('farmers')">Customers</button><button type="button" onclick="goTo('sales')">Invoices</button><button type="button" onclick="goTo('outstanding')">Receivables</button><button type="button" onclick="goTo('reports')">Reports</button>
+        </nav>
+      </section>
+
+      <!-- ================= BILLING VIEW ================= -->
+      <section class="view" id="view-billing">
+        <div class="billing-layout">
+          <div class="billing-left">
+            <div class="billing-title-row">
+              <div><div class="billing-breadcrumb"><span>Workspace</span><i>›</i><strong>Invoices</strong><i>›</i><b>Create</b></div><span class="billing-eyebrow">Point of sale</span><h1>Create Invoice</h1><p>Generate professional customer invoices.</p></div>
+              <button class="btn btn-secondary admin-only billing-add-product" type="button" onclick="openProductForm()">Add Product</button>
+            </div>
+            <div class="billing-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="search" id="productSearch" placeholder="Search products, SKU or scan barcode" aria-label="Search products">
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+          </div>
+
+            <div class="billing-right">
+              <div class="bill-head">
+              <div class="bill-title-line"><div><span class="bill-eyebrow">Invoice draft</span><h2>Current Invoice</h2><div class="bill-date" id="billDate"></div></div><div class="bill-head-meta"><span class="bill-reference">DRAFT</span><span class="bill-item-count" id="billItemCount">0 items</span></div></div>
+              <div class="farmer-select" id="farmerSelectBtn" onclick="openFarmerPicker()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+                <div>
+                  <div class="farmer-select-label">BILL TO</div>
+                  <div class="farmer-select-text" id="farmerSelectText">Select Farmer / Customer</div>
+                </div>
+                <span class="farmer-select-arrow" aria-hidden="true">›</span>
+              </div>
+            </div>
+            <div class="bill-items" id="billItems"></div>
+            <div class="bill-summary">
+              <div class="summary-currency"><span>All amounts in Indian Rupees</span><b>INR ₹</b></div>
+              <div class="sum-row"><span>Subtotal</span><span id="sumSubtotal">₹0.00</span></div>
+              <div class="sum-row discount"><span>Discount</span><span class="amount-input"><b>₹</b><input type="number" id="discountInput" value="0" min="0" step="0.01" oninput="renderBill()"></span></div>
+              <div class="sum-row"><span id="sumTaxLabel">GST</span><span id="sumTax">₹0.00</span></div>
+              <div class="sum-divider"></div>
+              <div class="grand-total-row"><span class="grand-total-label">Grand Total</span><span class="grand-total-value" id="grandTotal">₹0</span></div>
+
+              <div class="payment-heading">Payment method</div>
+              <div class="pay-methods" id="payMethods">
+                <button class="pay-method active" data-pm="Cash">Cash</button>
+                <button class="pay-method" data-pm="UPI">UPI</button>
+                <button class="pay-method" data-pm="Bank">Bank</button>
+                <button class="pay-method" data-pm="Credit">Credit</button>
+              </div>
+              <div class="pay-inputs">
+                <div><label for="amountPaid">Amount Paid <span>INR</span></label><div class="rupee-input"><b>₹</b><input type="number" id="amountPaid" value="0" min="0" step="0.01" oninput="paymentIsManual=true; renderBill()"></div></div>
+                <div><label>Balance Due <span>INR</span></label><input type="text" id="balanceDue" value="₹0.00" readonly></div>
+              </div>
+              <div class="bill-actions">
+                <button class="btn btn-gold btn-block btn-lg" id="completeBillBtn" type="button" onclick="completeBill()">Complete &amp; Print Bill</button>
+                <button class="btn btn-secondary btn-block" type="button" onclick="clearCurrentBill()">Clear Current Bill</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PRODUCTS VIEW ================= -->
+      <section class="view" id="view-products">
+        <div class="page-head-row">
+          <h1>Products</h1>
+          <div class="head-actions">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="search" id="productsListSearch" placeholder="Search products" aria-label="Search products list">
+            </div>
+            <button class="btn btn-secondary" id="productFilterBtn" type="button" aria-expanded="false" onclick="toggleProductFilter()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filter</button>
+            <select id="productCategoryFilter" class="list-filter" aria-label="Filter products by category" hidden onchange="filterProductsList()"><option value="">All types</option><option value="Fertilizer">Fertilizer</option><option value="Pesticides">Pesticides</option></select>
+            <select id="productStockFilter" class="list-filter" aria-label="Filter products by stock level" hidden onchange="filterProductsList()"><option value="">All stock</option><option value="low">Low stock</option><option value="out">Out of stock</option><option value="in">In stock</option></select>
+            <button class="btn btn-primary admin-only" type="button" onclick="openProductForm()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add Product</button>
+          </div>
+        </div>
+        <div class="card table-wrap">
+          <table id="productsTable"></table>
+        </div>
+      </section>
+
+      <!-- ================= INVENTORY VIEW ================= -->
+      <section class="view" id="view-inventory">
+        <div class="page-head-row"><h1>Inventory</h1></div>
+        <div class="card table-wrap">
+          <table id="inventoryTable"></table>
+        </div>
+      </section>
+
+      <!-- ================= FARMERS VIEW ================= -->
+      <section class="view" id="view-farmers">
+        <div class="page-head-row">
+          <h1>Farmers</h1>
+          <div class="head-actions">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="search" id="farmersListSearch" placeholder="Search farmers" aria-label="Search farmers list">
+            </div>
+            <button class="btn btn-primary" type="button" onclick="openFarmerForm()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add Customer</button>
+          </div>
+        </div>
+        <div class="farmer-grid" id="farmerGrid"></div>
+      </section>
+
+      <!-- ================= SALES VIEW ================= -->
+      <section class="view" id="view-sales">
+        <div class="page-head-row"><h1>Sales</h1></div>
+        <div class="card table-wrap"><table id="salesTable"></table></div>
+      </section>
+
+      <!-- ================= PURCHASES VIEW ================= -->
+      <section class="view" id="view-purchases">
+        <div class="page-head-row"><h1>Purchases</h1>
+          <button class="btn btn-primary" type="button" disabled title="Purchasing is not available yet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>New Purchase Order</button>
+        </div>
+        <div class="empty-state card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h2l1.4 12.4A2 2 0 0 0 9.4 18h8.2a2 2 0 0 0 2-1.7L21 8H7"/></svg>
+          <h3>No purchase orders yet</h3>
+          <p>Record stock you buy from suppliers to keep inventory counts accurate automatically.</p>
+        </div>
+      </section>
+
+      <!-- ================= OUTSTANDING VIEW ================= -->
+      <section class="view" id="view-outstanding">
+        <div class="page-head-row"><h1>Outstanding Payments</h1></div>
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Total Outstanding</span></div>
+            <div class="metric-value" id="oTotalOutstanding">₹0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Due Today</span></div>
+            <div class="metric-value" id="oDueToday">₹0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Older Than 7 Days</span></div>
+            <div class="metric-value" id="oOverdue" style="color:var(--danger)">₹0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-top"><span class="metric-label">Customers With Dues</span></div>
+            <div class="metric-value" id="oCustomersWithDues">0</div>
+          </div>
+        </div>
+        <div class="card table-wrap"><table id="outstandingTable"></table></div>
+      </section>
+
+      <!-- ================= REPORTS VIEW ================= -->
+      <section class="view" id="view-reports">
+        <div class="page-head-row reports-page-head">
+          <div><span class="report-eyebrow">BUSINESS INTELLIGENCE</span><h1>Reports centre</h1><p class="report-subtitle">Your sales, collections and product performance—ready to download.</p></div>
+          <div class="report-format-control"><label for="reportFormat">EXPORT FORMAT</label><select id="reportFormat" aria-label="Report export format"><option value="pdf">Download PDF</option><option value="xlsx">Download Excel</option><option value="csv">Download CSV</option></select></div>
+        </div>
+        <div class="report-quick-filter" role="group" aria-label="Quick report periods"><span>Quick reports</span><button type="button" class="active" onclick="selectReportPeriod('today', this)">Today</button><button type="button" onclick="selectReportPeriod('weekly', this)">Last 7 Days</button><button type="button" onclick="selectReportPeriod('monthly', this)">Last 30 Days</button><button type="button" onclick="selectReportPeriod('custom', this)">Custom Range</button></div>
+        <div class="reports-kpi-grid" aria-label="Selected period summary"><article class="reports-kpi sales"><span class="reports-kpi-icon">↗</span><div><span>Total Sales</span><strong id="kpiSales">₹0</strong><small id="kpiSalesNote">Current period</small></div><i></i></article><article class="reports-kpi purchases"><span class="reports-kpi-icon">□</span><div><span>Total Purchases</span><strong id="kpiPurchases">₹0</strong><small>Tracked purchase value</small></div><i></i></article><article class="reports-kpi expenses"><span class="reports-kpi-icon">◌</span><div><span>Total Expenses</span><strong id="kpiExpenses">₹0</strong><small>Tracked expense value</small></div><i></i></article><article class="reports-kpi profit"><span class="reports-kpi-icon">✦</span><div><span>Total Profit</span><strong id="kpiProfit">₹0</strong><small>Calculated business profit</small></div><i></i></article></div>
+        <div class="report-downloads legacy-report-downloads" aria-label="Download business reports">
+          <article class="report-download-card"><span class="report-period-icon today">01</span><div><span>DAILY REPORT</span><strong>Today’s report</strong><p>Sales, payments and invoices from today.</p></div><button class="btn btn-secondary report-export-btn" type="button" onclick="downloadReport('today', this)">Export CSV</button></article>
+          <article class="report-download-card"><span class="report-period-icon weekly">07</span><div><span>WEEKLY REPORT</span><strong>Weekly report</strong><p>Last 7 days of business performance.</p></div><button class="btn btn-secondary report-export-btn" type="button" onclick="downloadReport('weekly', this)">Export CSV</button></article>
+          <article class="report-download-card featured"><span class="report-period-icon monthly">30</span><div><span>MONTHLY REPORT</span><strong>Monthly report</strong><p>Last 30 days, including top products.</p></div><button class="btn btn-primary report-export-btn" type="button" onclick="downloadReport('monthly', this)">Export CSV</button></article>
+        </div>
+        <div class="report-downloads report-periods" aria-label="Business report periods">
+          <article class="report-download-card report-period-card" data-period="today"><div class="report-card-top"><span class="report-period-icon today">01</span><span class="report-card-kicker">LIVE TODAY</span><span class="report-date" id="todayRange">Loading…</span></div><div><span>TODAY REPORT</span><strong>Today's Business Overview</strong><p>Sales activity, collections and transactions for the current day.</p></div><div class="report-metric-grid"><div><span>Sales</span><b id="todaySales">₹0</b></div><div><span>Purchases</span><b id="todayPurchases">₹0</b></div><div><span>Expenses</span><b id="todayExpenses">₹0</b></div><div><span>Profit</span><b id="todayProfit">₹0</b></div></div><div class="report-card-footer"><span id="todayTransactions">0 transactions</span><div><button class="btn btn-secondary" type="button" onclick="viewReport('today')">View Detailed Report</button><button class="btn btn-primary report-export-btn" type="button" onclick="downloadReport('today', this)">Export Report</button></div></div></article>
+          <article class="report-download-card report-period-card" data-period="weekly"><div class="report-card-top"><span class="report-period-icon weekly">07</span><span class="report-card-kicker">THIS WEEK</span><span class="report-date" id="weeklyRange">Loading…</span></div><div><span>WEEKLY REPORT</span><strong>Weekly Performance</strong><p>Track sales momentum and activity across the current business week.</p></div><div class="report-metric-grid"><div><span>Sales</span><b id="weeklySales">₹0</b></div><div><span>Purchases</span><b id="weeklyPurchases">₹0</b></div><div><span>Expenses</span><b id="weeklyExpenses">₹0</b></div><div><span>Profit</span><b id="weeklyProfit">₹0</b></div></div><div class="report-card-footer"><span id="weeklyTransactions">0 transactions</span><div><button class="btn btn-secondary" type="button" onclick="viewReport('weekly')">View Detailed Report</button><button class="btn btn-primary report-export-btn" type="button" onclick="downloadReport('weekly', this)">Export Report</button></div></div></article>
+          <article class="report-download-card report-period-card featured" data-period="monthly"><div class="report-card-top"><span class="report-period-icon monthly">30</span><span class="report-card-kicker">THIS MONTH</span><span class="report-date" id="monthlyRange">Loading…</span></div><div><span>MONTHLY REPORT</span><strong>Monthly Business Summary</strong><p>Your high-level view of business progress for the current month.</p></div><div class="report-metric-grid"><div><span>Sales</span><b id="monthlySales">₹0</b></div><div><span>Purchases</span><b id="monthlyPurchases">₹0</b></div><div><span>Expenses</span><b id="monthlyExpenses">₹0</b></div><div><span>Profit</span><b id="monthlyProfit">₹0</b></div></div><div class="report-card-footer"><span id="monthlyTransactions">0 transactions</span><div><button class="btn btn-secondary" type="button" onclick="viewReport('monthly')">View Detailed Report</button><button class="btn btn-primary report-export-btn" type="button" onclick="downloadReport('monthly', this)">Export Report</button></div></div></article>
+        </div>
+        <div id="reportDetail" class="report-detail" aria-live="polite"></div>
+        <div class="report-grid" style="margin-bottom:16px;">
+          <div class="panel reports-analytics-card"><div class="panel-head"><span class="panel-title">Sales Performance</span><span class="analytics-total" id="analyticsSalesTotal">₹0 <small>7-day sales</small></span></div><div class="panel-body" id="salesPerformance"></div><button class="report-link-btn" type="button" onclick="viewReport('weekly')">View Full Report →</button></div>
+          <div class="panel reports-analytics-card"><div class="panel-head"><span class="panel-title">Top Products</span></div><div class="panel-body"><div class="top-products-list" id="topProductsList"></div></div><button class="report-link-btn" type="button" onclick="viewReport('monthly')">View Full Report →</button></div>
+        </div>
+        <div class="report-grid"><div class="panel"><div class="panel-head"><span class="panel-title">Payment Methods</span></div><div class="panel-body" id="paymentMethodsReport"></div></div></div>
+      </section>
+
+      <!-- ================= SETTINGS VIEW ================= -->
+      <section class="view" id="view-settings">
+        <div class="page-head-row"><h1>Settings</h1></div>
+        <div class="card" style="padding:22px;">
+          <div style="display:flex; gap:14px; align-items:center; margin-bottom:18px;">
+            <div class="avatar" style="width:52px;height:52px;font-size:16px;">SP</div>
+            <div>
+              <div style="font-weight:700; font-size:14.5px;" id="accountName">Signed in user</div>
+              <div style="font-size:12px; color:var(--charcoal-soft);">Shop Admin · Adinath Agri Services</div>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--charcoal-soft);">Business settings and staff management are not available yet.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Mobile bottom nav -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a class="mobile-nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>
+        Home
+      </a>
+      <a class="mobile-nav-item" data-view="billing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/></svg>
+        Billing
+      </a>
+      <a class="mobile-nav-item" data-view="products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
+        Products
+      </a>
+      <a class="mobile-nav-item" data-view="farmers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></svg>
+        Farmers
+      </a>
+      <a class="mobile-nav-item" data-view="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9"/></svg>
+        More
+      </a>
+    </nav>
+  </div>
+</div>
+
+<!-- Farmer Picker Modal -->
+<div class="modal-overlay" id="farmerModal">
+  <div class="modal">
+    <div class="modal-head"><h3>Select Farmer / Customer</h3><button class="modal-close" onclick="closeModal('farmerModal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+    <div class="modal-body">
+      <div class="search-box" style="margin-bottom:10px; width:100%;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="farmerPickerSearch" type="search" placeholder="Search by name or mobile" aria-label="Search customers" style="width:100%;">
+      </div>
+      <div id="farmerPickList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Invoice Modal -->
+<div class="modal-overlay" id="entityModal" role="dialog" aria-modal="true" aria-labelledby="entityModalTitle">
+  <div class="modal">
+    <div class="modal-head"><h3 id="entityModalTitle">Create record</h3><button class="modal-close" type="button" aria-label="Close" onclick="closeModal('entityModal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+    <form class="modal-body entity-form" id="entityForm"></form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="invoiceModal">
+  <div class="modal invoice-modal">
+    <div class="modal-head"><h3>Invoice Preview</h3><div class="head-actions"><button class="btn btn-whatsapp" type="button" onclick="sendInvoiceWhatsApp()">WhatsApp</button><button class="btn btn-sms" type="button" onclick="sendInvoiceSms()">SMS</button><button class="btn btn-secondary" type="button" onclick="printInvoice()">Print</button><button class="modal-close" type="button" aria-label="Close" onclick="closeModal('invoiceModal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
+    <div class="modal-body" style="padding:0;">
+      <div class="invoice-sheet" id="invoiceSheet"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span id="toastText">Saved</span></div>
+
+<script src="/static/js/security.js?v=2.1"></script>
+<script src="/static/js/safe-html.js?v=2.1"></script>
+<script src="/static/js/app.js?v=pwa-install-1"></script>
+</body>
+</html>

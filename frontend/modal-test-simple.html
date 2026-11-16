@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Modal Test</title>
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .modal-overlay.open {
+            display: flex;
+        }
+        
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-close {
+            background: #ddd;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .modal-close:hover {
+            background: #ccc;
+        }
+        
+        .test-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #1a4d2e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .test-btn:hover {
+            background: #27613d;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        
+        .status {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Simple Modal Test</h1>
+    
+    <p>This is a standalone test to verify the modal concept works.</p>
+    
+    <button class="test-btn" onclick="openTestModal()">
+        Open Test Modal
+    </button>
+    
+    <div class="status" id="status">
+        Click the button above to test the modal.
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal-overlay" id="testModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h2>Test Modal</h2>
+                <button class="modal-close" onclick="closeTestModal()">×</button>
+            </div>
+            <div>
+                <p><strong>✅ Success!</strong></p>
+                <p>The modal is displaying correctly.</p>
+                <p>This proves the modal concept works.</p>
+                <br>
+                <button class="test-btn" onclick="closeTestModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openTestModal() {
+            console.log('openTestModal called');
+            const modal = document.getElementById('testModal');
+            console.log('Modal element:', modal);
+            
+            if (modal) {
+                modal.classList.add('open');
+                console.log('Added "open" class');
+                document.getElementById('status').innerHTML = 
+                    '<span class="success">✅ Modal opened successfully!</span>';
+            } else {
+                console.error('Modal element not found!');
+                document.getElementById('status').innerHTML = 
+                    '<span class="error">❌ Error: Modal element not found!</span>';
+            }
+        }
+        
+        function closeTestModal() {
+            console.log('closeTestModal called');
+            const modal = document.getElementById('testModal');
+            
+            if (modal) {
+                modal.classList.remove('open');
+                console.log('Removed "open" class');
+                document.getElementById('status').innerHTML = 
+                    '<span class="success">✅ Modal closed. Click button to test again.</span>';
+            }
+        }
+        
+        // Log on page load
+        console.log('Page loaded');
+        console.log('Modal element exists:', !!document.getElementById('testModal'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+[2026-09-18T19:00:08.607Z] Application starting. Packaged: true
+[2026-09-18T19:00:08.708Z] Starting backend on port 8765: D:\Prajot\adinath-agri-services-project\adinath-agri-services\desktop\release\win-unpacked\resources\backend\AdinathAgriBackend.exe
+[2026-09-18T19:00:10.839Z] Backend process exited with code 1.
+[2026-09-18T19:00:10.840Z] The local application service stopped unexpectedly.
+[2026-09-18T19:01:20.683Z] Backend process stopped.
