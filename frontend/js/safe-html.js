@@ -118,7 +118,7 @@ function buildProductForm(product = null) {
         {value: 'Pesticides', label: 'Pesticides'}
       ]
     ).replace('value="Fertilizer"', `value="Fertilizer"${product?.categoryRaw === 'Fertilizer' || !product ? ' selected' : ''}`)
-     .replace('value="Pesticides"`, `value="Pesticides"${product?.categoryRaw === 'Pesticides' ? ' selected' : ''}`))}
+     .replace('value="Pesticides"', `value="Pesticides"${product?.categoryRaw === 'Pesticides' ? ' selected' : ''}`))}
     ${safeLabel('Unit', safeInput({name: 'unit', required: true, maxlength: 40, value: product?.unitRaw || ''}))}
     ${safeLabel('Purchase price (incl. GST)', safeInput({name: 'purchase_price_including_gst', type: 'number', min: 0, step: 0.01, value: product?.purchasePrice || ''}))}
     ${safeLabel('Selling price', safeInput({name: 'selling_price', type: 'number', min: 0, step: 0.01, value: product?.price || '', placeholder: 'Not Verified'}))}
@@ -216,7 +216,7 @@ function buildProductForm2(product = null) {
         {value: 'Pesticides', label: 'Pesticides'}
       ]
     ).replace('value="Fertilizer"', `value="Fertilizer"${product?.categoryRaw === 'Fertilizer' || !product ? ' selected' : ''}`)
-     .replace('value="Pesticides"`, `value="Pesticides"${product?.categoryRaw === 'Pesticides' ? ' selected' : ''}`))}
+     .replace('value="Pesticides"', `value="Pesticides"${product?.categoryRaw === 'Pesticides' ? ' selected' : ''}`))}
     ${safeLabel('Unit', safeInput({name: 'unit', required: true, maxlength: 40, value: product?.unitRaw || ''}))}
     ${safeLabel('Purchase price (incl. GST)', safeInput({name: 'purchase_price_including_gst', type: 'number', min: 0, step: 0.01, value: product?.purchasePrice || ''}))}
     ${safeLabel('Selling price', safeInput({name: 'selling_price', type: 'number', min: 0, step: 0.01, value: product?.price || '', placeholder: 'Not Verified'}))}

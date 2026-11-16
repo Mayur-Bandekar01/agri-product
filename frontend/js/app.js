@@ -314,7 +314,7 @@ function openModal(modalId, title, formBuilder, formData = null) {
         formError.textContent = err.message || 'Could not save entry. Please try again.';
       }
       showToast(err.message || 'Operation failed', 'critical');
-      console.error(`${modalId} submit error:', err);
+      console.error(`${modalId} submit error:`, err);
     } finally {
       // Re-enable submit button
       const submit = form.querySelector('[type="submit"]');
@@ -485,7 +485,7 @@ async function loadFarmers(){
       location:escapeHtml(f.location||''), locationRaw:f.location||'',
       totalPurchases:f.total_purchases, outstanding:f.outstanding,
       lastPurchase:f.last_purchase ? new Date(f.last_purchase).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}) : String.fromCharCode(8212)
-    ));
+    }));
   }catch(e){ console.warn('loadFarmers failed', e); }
 }
 
@@ -644,7 +644,7 @@ function goBack(){
 }
 updateBackButton();
 document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(item=>{
-  item.addEventListener('click', ()=> goTo(item.dataset.view);
+  item.addEventListener('click', ()=> goTo(item.dataset.view));
 });
 
 /* ================= DASHBOARD RENDER ================= */
@@ -862,7 +862,6 @@ function showToast(message, severity = 'success', onClick){
 
 /* ================= REPORTS ================= */
 let selectedReport = null;
-let reportsLoaded = false;
 
 async function loadReports(){
   try {
